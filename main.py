@@ -361,12 +361,12 @@ class TikTokBooster:
 
                         if TYPE == 'views':
                             print(
-                                f"{datetime.now().strftime('%H:%M:%S')} {SUCCESS}{Fore.WHITE}{ProgramUsage.Translations("main",4)}"
+                                f"{datetime.now().strftime('%H:%M:%S')} {SUCCESS}{Fore.WHITE}{ProgramUsage.Translations('main',4)}"
                                 f"{Style.RESET_ALL}")
                             self.counter += 1000
                         elif TYPE == 'shares':
                             print(
-                                f"{datetime.now().strftime('%H:%M:%S')} {SUCCESS}{Fore.WHITE}{ProgramUsage.Translations("main",5)}"
+                                f"{datetime.now().strftime('%H:%M:%S')} {SUCCESS}{Fore.WHITE}{ProgramUsage.Translations('main',5)}"
                                 f"{Style.RESET_ALL}")
                             self.counter += 50
                         elif TYPE == 'favorites':
@@ -375,7 +375,7 @@ class TikTokBooster:
                             self.counter += 100
                         elif TYPE == 'hearts':
                             print(
-                                f"{datetime.now().strftime('%H:%M:%S')} {SUCCESS}{Fore.WHITE}{ProgramUsage.Translations("main",7)}"
+                                f"{datetime.now().strftime('%H:%M:%S')} {SUCCESS}{Fore.WHITE}{ProgramUsage.Translations('main',7)}"
                                 f"{Style.RESET_ALL}")
                             self.counter += 10
 
