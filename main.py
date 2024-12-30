@@ -424,11 +424,11 @@ class TikTokBooster:
         """Show the program configuration menu"""
         os.system("cls") if os.name == 'nt' else os.system("clear")
         print("Type Configuration : \n")
-        print(f'{available_color('views')}[{'1' if available_color('views') == Fore.GREEN else '-'}] {'Views'} {f'[{ProgramUsage.Translations("main",9)}]' if TYPE.lower() == 'views' else ''}')
-        print(f'{available_color('followers')}[{'2' if available_color('followers') == Fore.GREEN else '-'}] {'Followers'} {f'[{ProgramUsage.Translations("main",9)}]' if TYPE.lower() == 'followers' else ''}')
-        print(f'{available_color('favorites')}[{'3' if available_color('favorites') == Fore.GREEN else '-'}] {'Favorites'} {f'[{ProgramUsage.Translations("main",9)}]' if TYPE.lower() == 'favorites' else ''}')
-        print(f'{available_color('shares')}[{'4' if available_color('shares') == Fore.GREEN else '-'}] {'Shares'} {f'[{ProgramUsage.Translations("main",9)}]' if TYPE.lower() == 'shares' else ''}')
-        print(f'{available_color('hearts')}[{'5' if available_color('hearts') == Fore.GREEN else '-'}] {'Hearts'} {f'[{ProgramUsage.Translations("main",9)}]' if TYPE.lower() == 'hearts' else ''}')
+        print(f"{available_color('views')}[{'1' if available_color('views') == Fore.GREEN else '-'}] {'Views'} {f'[{ProgramUsage.Translations("main",9)}]' if TYPE.lower() == 'views' else ''}")
+        print(f"{available_color('followers')}[{'2' if available_color('followers') == Fore.GREEN else '-'}] {'Followers'} {f'[{ProgramUsage.Translations("main",9)}]' if TYPE.lower() == 'followers' else ''}")
+        print(f"{available_color('favorites')}[{'3' if available_color('favorites') == Fore.GREEN else '-'}] {'Favorites'} {f'[{ProgramUsage.Translations("main",9)}]' if TYPE.lower() == 'favorites' else ''}")
+        print(f"{available_color('shares')}[{'4' if available_color('shares') == Fore.GREEN else '-'}] {'Shares'} {f'[{ProgramUsage.Translations("main",9)}]' if TYPE.lower() == 'shares' else ''}")
+        print(f"{available_color('hearts')}[{'5' if available_color('hearts') == Fore.GREEN else '-'}] {'Hearts'} {f'[{ProgramUsage.Translations("main",9)}]' if TYPE.lower() == 'hearts' else ''}")
         print(Fore.CYAN,f"\n[99] - {ProgramUsage.Translations("main",8)}!",Style.RESET_ALL)
         print("\n")
         while True:
