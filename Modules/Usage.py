@@ -67,7 +67,7 @@ class ProgramUsage():
         try:
             return response['id']
         except KeyError:
-            print(f"{Fore.RED}[Warning] Unable to get Video ID{Style.RESET_ALL}")
+            print(f'{Fore.RED}[Warning] Unable to get Video ID{Style.RESET_ALL}')
             return None
         
     def convert_hours(hours = 'ind',sec = 'ind'):

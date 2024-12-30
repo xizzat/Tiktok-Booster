@@ -70,7 +70,7 @@ class TikTokVideoInfo:
             else:
                 return {'error': 'Failed to retrieve data'}
         except requests.exceptions.RequestException as e:
-            print(f"Request Exception: {e}")
+            print(f'Request Exception: {e}')
             return {'error': 'Error during request'}
 
     def _get_video_info(self, Creator=False, Views=False, Likes=False, Shares=False, Comments=False,
@@ -84,7 +84,7 @@ class TikTokVideoInfo:
                     csrf_token, cookies = self.get_csrf_token_and_cookies()
                     self.data = self.post_tiktok_data(csrf_token, cookies)
 
-                    # print(f"Data Retrieved: {self.data}") # For debugging :)
+                    # print(f'Data Retrieved: {self.data}') # For debugging :)
 
                     if 'error' in self.data:
                         return self.data['error']

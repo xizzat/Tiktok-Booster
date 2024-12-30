@@ -68,8 +68,8 @@ def  is_first_run():
 
 def show_credits():
     """Display program credits"""
-    print(f"{INFO}{Fore.BLUE}{ProgramUsage.Translations("credits",0)}{Fore.CYAN}Sneezedip.{Style.RESET_ALL}")
-    print(f"{INFO}{Fore.BLUE}{ProgramUsage.Translations("credits",1)}{Fore.GREEN}"
+    print(f'{INFO}{Fore.BLUE}{ProgramUsage.Translations("credits",0)}{Fore.CYAN}Sneezedip.{Style.RESET_ALL}')
+    print(f"{INFO}{Fore.BLUE}{ProgramUsage.Translations('credits',1)}{Fore.GREEN}"
           f"https://discord.gg/nAa5PyxubF{Style.RESET_ALL}")
 
 
@@ -114,7 +114,7 @@ elif OPERATING_SYSTEM == "Linux":
         print(f'{INFO}{Fore.WHITE}{ProgramUsage.Translations("credits",1)}{Style.RESET_ALL}', end="\r")
         os.system("sudo apt install tesseract-ocr")
 else:
-    print(f"{WARNING}Unsupported Operating System ({platform.system()})! Exiting...")
+    print(f'{WARNING}Unsupported Operating System ({platform.system()})! Exiting...')
     sys.exit()
 
 
@@ -128,11 +128,11 @@ class TikTokBooster:
             if not self.history:
                 break
             else:
-                print(f"\n{Fore.YELLOW}{ProgramUsage.Translations("history",0)}{Fore.RESET}")
+                print(f'\n{Fore.YELLOW}{ProgramUsage.Translations("history",0)}{Fore.RESET}')
                 
                 for index, record in enumerate(self.history, start=1):
                     if isinstance(record, dict):
-                        print(f"\n{Fore.CYAN}[{index}] {Fore.WHITE}{Style.BRIGHT}Video Link: {Style.RESET_ALL}https://www.tiktok.com/@{record["creator"]}/video/{record["video_id"]}\n"
+                        print(f"\n{Fore.CYAN}[{index}] {Fore.WHITE}{Style.BRIGHT}Video Link: {Style.RESET_ALL}https://www.tiktok.com/@{record['creator']}/video/{record["video_id"]}\n"
                             f"{Fore.WHITE}{Style.BRIGHT}Creator: {Style.RESET_ALL}{record['creator']} \n"
                             f"{Fore.WHITE}{Style.BRIGHT}Views: {Style.RESET_ALL}{Fore.LIGHTYELLOW_EX}{record['views_before']} {Fore.WHITE}-> {Fore.GREEN}{record['views_after']} {Fore.RESET}\n"
                             f"{Fore.WHITE}{Style.BRIGHT}Last Time Used: {Style.RESET_ALL}{record['last_time_used']}{Fore.RESET}")
@@ -148,9 +148,9 @@ class TikTokBooster:
                         VIDEO = f"https://www.tiktok.com/@{self.history[choice - 1]["creator"]}/video/{self.history[choice - 1]["video_id"]}"
                         break
                     else:
-                        print(f"{ProgramUsage.Translations("errors",0)}")
+                        print(f'{ProgramUsage.Translations("errors",0)}')
                 except ValueError:
-                    print(f"{ProgramUsage.Translations("errors",1)}")
+                    print(f'{ProgramUsage.Translations("errors",1)}')
         while True:
             try:
                 self.tiktok_info = TikTokVideoInfo(VIDEO)
@@ -159,7 +159,7 @@ class TikTokBooster:
             except ValueError:
                 os.system("cls") if os.name == 'nt' else os.system("clear")
                 if self.history_selected == None:
-                    print(f"{WARNING}{ProgramUsage.Translations("errors",2)}{Fore.BLUE}\nOLD URL : {Fore.WHITE}{VIDEO}")
+                    print(f'{WARNING}{ProgramUsage.Translations("errors",2)}{Fore.BLUE}\nOLD URL : {Fore.WHITE}{VIDEO}')
                 VIDEO = input(f"{Fore.BLUE}{ProgramUsage.Translations("errors",3)}{Fore.WHITE}")
         self.counter = 0
         self.webhook = WEBHOOK
@@ -194,7 +194,7 @@ class TikTokBooster:
         elif OPERATING_SYSTEM == "Linux":
             pytesseract.pytesseract.tesseract_cmd = "/usr/bin/tesseract"
         else:
-            print(f"{WARNING}Unsupported Operating System ({platform.system()})! Exiting...")
+            print(f'{WARNING}Unsupported Operating System ({platform.system()})! Exiting...')
             sys.exit()
         try:
             WebDriverWait(self.driver, SLEEP).until(ec.presence_of_element_located(
@@ -247,7 +247,7 @@ class TikTokBooster:
                 pytesseract.image_to_string(Image.open('Captcha/captcha.png')))
         except (ElementNotInteractableException):
             self._reset_browser()
-        print(f"{datetime.now().strftime('%H:%M:%S')} {WAITING}{Fore.WHITE}{ProgramUsage.Translations("main",0)}"
+        print(f"{datetime.now().strftime('%H:%M:%S')} {WAITING}{Fore.WHITE}{ProgramUsage.Translations('main',0)}"
               f"{Style.RESET_ALL}", end="\r")
         return self._is_captcha_passed()
 
@@ -265,7 +265,7 @@ class TikTokBooster:
         try:
             self.driver.quit()  # Close the current session
         except Exception as e:
-            print(f"{WARNING}Error while closing the browser: {e}")
+            print(f'{WARNING}Error while closing the browser: {e}')
 
         # Create a new instance of the browser
         self.driver = webdriver.Chrome(options=self.options)
@@ -299,11 +299,11 @@ class TikTokBooster:
                 break
             except (TimeoutException, NoSuchElementException) as e:
                 retries += 1
-                print(f"{WARNING}Unable to find the button for {TYPE}.. Retrying.. (retry {retries}/{max_retries})")
-                print(f"Exception details: {e}")
+                print(f'{WARNING}Unable to find the button for {TYPE}.. Retrying.. (retry {retries}/{max_retries})')
+                print(f'Exception details: {e}')
                 time.sleep(2 ** retries)  # exponential backoff
                 if retries >= max_retries:
-                    print(f"{WARNING} Max retries reached. Resetting the browser...")
+                    print(f'{WARNING} Max retries reached. Resetting the browser...')
                     self._reset_browser()
                     retries = 0  # Reset the retry counter after resetting the browser
 
@@ -345,7 +345,7 @@ class TikTokBooster:
                                 print()
 
                     except Exception as e:
-                        print(f"{WARNING}An exception occurred: {e}")
+                        print(f'{WARNING}An exception occurred: {e}')
                         continue
 
                     time.sleep(2)
@@ -370,7 +370,7 @@ class TikTokBooster:
                                 f"{Style.RESET_ALL}")
                             self.counter += 50
                         elif TYPE == 'favorites':
-                            print(f"{datetime.now().strftime('%H:%M:%S')} {SUCCESS}{Fore.WHITE}{ProgramUsage.Translations("main",6)}"
+                            print(f"{datetime.now().strftime('%H:%M:%S')} {SUCCESS}{Fore.WHITE}{ProgramUsage.Translations('main',6)}"
                                 f"{Style.RESET_ALL}")
                             self.counter += 100
                         elif TYPE == 'hearts':
@@ -402,10 +402,10 @@ class TikTokBooster:
                 break  # If everything went well, break the loop
 
             except TypeError as te:
-                print(f"{WARNING} A TypeError occurred: {te}. Retrying... (Attempt {retries + 1}/{max_retries})")
+                print(f'{WARNING} A TypeError occurred: {te}. Retrying... (Attempt {retries + 1}/{max_retries})')
                 retries += 1
                 if retries >= max_retries:
-                    print(f"{WARNING} Failed after {max_retries} attempts. Exiting.")
+                    print(f'{WARNING} Failed after {max_retries} attempts. Exiting.')
                     sys.exit(1)  # Exit the program or handle it as required
 
     def _is_ready(self):
@@ -424,11 +424,11 @@ class TikTokBooster:
         """Show the program configuration menu"""
         os.system("cls") if os.name == 'nt' else os.system("clear")
         print("Type Configuration : \n")
-        print(f"{available_color('views')}[{'1' if available_color('views') == Fore.GREEN else '-'}] {'Views'} {f'[{ProgramUsage.Translations("main",9)}]' if TYPE.lower() == 'views' else ''}")
-        print(f"{available_color('followers')}[{'2' if available_color('followers') == Fore.GREEN else '-'}] {'Followers'} {f'[{ProgramUsage.Translations("main",9)}]' if TYPE.lower() == 'followers' else ''}")
-        print(f"{available_color('favorites')}[{'3' if available_color('favorites') == Fore.GREEN else '-'}] {'Favorites'} {f'[{ProgramUsage.Translations("main",9)}]' if TYPE.lower() == 'favorites' else ''}")
-        print(f"{available_color('shares')}[{'4' if available_color('shares') == Fore.GREEN else '-'}] {'Shares'} {f'[{ProgramUsage.Translations("main",9)}]' if TYPE.lower() == 'shares' else ''}")
-        print(f"{available_color('hearts')}[{'5' if available_color('hearts') == Fore.GREEN else '-'}] {'Hearts'} {f'[{ProgramUsage.Translations("main",9)}]' if TYPE.lower() == 'hearts' else ''}")
+        print(f'{available_color('views')}[{'1' if available_color('views') == Fore.GREEN else '-'}] {'Views'} {f'[{ProgramUsage.Translations("main",9)}]' if TYPE.lower() == 'views' else ''}')
+        print(f'{available_color('followers')}[{'2' if available_color('followers') == Fore.GREEN else '-'}] {'Followers'} {f'[{ProgramUsage.Translations("main",9)}]' if TYPE.lower() == 'followers' else ''}')
+        print(f'{available_color('favorites')}[{'3' if available_color('favorites') == Fore.GREEN else '-'}] {'Favorites'} {f'[{ProgramUsage.Translations("main",9)}]' if TYPE.lower() == 'favorites' else ''}')
+        print(f'{available_color('shares')}[{'4' if available_color('shares') == Fore.GREEN else '-'}] {'Shares'} {f'[{ProgramUsage.Translations("main",9)}]' if TYPE.lower() == 'shares' else ''}')
+        print(f'{available_color('hearts')}[{'5' if available_color('hearts') == Fore.GREEN else '-'}] {'Hearts'} {f'[{ProgramUsage.Translations("main",9)}]' if TYPE.lower() == 'hearts' else ''}')
         print(Fore.CYAN,f"\n[99] - {ProgramUsage.Translations("main",8)}!",Style.RESET_ALL)
         print("\n")
         while True:
@@ -463,7 +463,7 @@ class TikTokBooster:
     def _show_menu(self):
         """Show the program configuration menu"""
         os.system("cls") if os.name == 'nt' else os.system("clear")
-        print(f"{datetime.now().strftime('%H:%M:%S')} {WAITING}{Fore.WHITE}Gathering Video Info...", end="\r")
+        print(f'{datetime.now().strftime('%H:%M:%S')} {WAITING}{Fore.WHITE}Gathering Video Info...", end="\r')
 
         def _gather_info(info_type):
             try:
@@ -494,13 +494,13 @@ class TikTokBooster:
         ProgramUsage.save_or_replace_history(self.video_id,InitialInfo.CREATOR,InitialInfo.VIEWS_BEFORE,ProgramUsage.get_numeric_value(temp.get_video_info(Views=True)),ProgramUsage.get_numeric_value(temp.get_video_info(Likes=True)),ProgramUsage.get_numeric_value(temp.get_video_info(Shares=True)))
         if TYPE == 'views':
             views = ProgramUsage.get_numeric_value(temp.get_video_info(Views=True))
-            print(f"{INFO}[{round((index / AMOUNT) * 100, 1)}%] {Fore.WHITE}Video Views : {Fore.WHITE}{views} {Fore.GREEN}[+{int(views - self.initial_views)}] {Style.BRIGHT}{Fore.MAGENTA}(Est. {ProgramUsage.convert_hours(round((AMOUNT - index) * 2 / 60, 2))} Remaining.{Style.RESET_ALL})")
+            print(f'{INFO}[{round((index / AMOUNT) * 100, 1)}%] {Fore.WHITE}Video Views : {Fore.WHITE}{views} {Fore.GREEN}[+{int(views - self.initial_views)}] {Style.BRIGHT}{Fore.MAGENTA}(Est. {ProgramUsage.convert_hours(round((AMOUNT - index) * 2 / 60, 2))} Remaining.{Style.RESET_ALL})')
         if TYPE == 'shares':
             shares = ProgramUsage.get_numeric_value(temp.get_video_info(Shares=True))
-            print(f"{INFO}[{round((index / AMOUNT) * 100, 1)}%] {Fore.WHITE}Video Shares : {Fore.WHITE}{shares} {Fore.GREEN}[+{int(shares - self.initial_views)}] {Style.BRIGHT}{Fore.MAGENTA}(Est. {ProgramUsage.convert_hours(round((AMOUNT - index) * 2 / 60, 2))} Remaining.{Style.RESET_ALL})")
+            print(f'{INFO}[{round((index / AMOUNT) * 100, 1)}%] {Fore.WHITE}Video Shares : {Fore.WHITE}{shares} {Fore.GREEN}[+{int(shares - self.initial_views)}] {Style.BRIGHT}{Fore.MAGENTA}(Est. {ProgramUsage.convert_hours(round((AMOUNT - index) * 2 / 60, 2))} Remaining.{Style.RESET_ALL})')
         if TYPE == 'favorites':
             favorites = 0
-            print(f"{INFO}[{round((index / AMOUNT) * 100, 1)}%] {Fore.WHITE}Video Favorites : {Fore.WHITE}{favorites} {Fore.GREEN}[+{self.counter}] {Style.BRIGHT}{Fore.MAGENTA}(Est. {ProgramUsage.convert_hours(round((AMOUNT - index) * 2 / 60, 2))} Remaining.{Style.RESET_ALL})")
+            print(f'{INFO}[{round((index / AMOUNT) * 100, 1)}%] {Fore.WHITE}Video Favorites : {Fore.WHITE}{favorites} {Fore.GREEN}[+{self.counter}] {Style.BRIGHT}{Fore.MAGENTA}(Est. {ProgramUsage.convert_hours(round((AMOUNT - index) * 2 / 60, 2))} Remaining.{Style.RESET_ALL})')
         if TYPE == 'hearts':
             hearts = ProgramUsage.get_numeric_value(temp.get_video_info(Likes=True))
             print(
