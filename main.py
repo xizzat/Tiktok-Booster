@@ -160,7 +160,7 @@ class TikTokBooster:
                 os.system("cls") if os.name == 'nt' else os.system("clear")
                 if self.history_selected == None:
                     print(f'{WARNING}{ProgramUsage.Translations("errors",2)}{Fore.BLUE}\nOLD URL : {Fore.WHITE}{VIDEO}')
-                VIDEO = input(f"{Fore.BLUE}{ProgramUsage.Translations("errors",3)}{Fore.WHITE}")
+                VIDEO = input(f"{Fore.BLUE}{ProgramUsage.Translations('errors',3)}{Fore.WHITE}")
         self.counter = 0
         self.webhook = WEBHOOK
         self.webhook_text = WEBHOOK
