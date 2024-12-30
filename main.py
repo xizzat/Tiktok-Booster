@@ -138,7 +138,7 @@ class TikTokBooster:
                             f"{Fore.WHITE}{Style.BRIGHT}Last Time Used: {Style.RESET_ALL}{record['last_time_used']}{Fore.RESET}")
                         
                 try:
-                    choice = int(input(f"\n{ProgramUsage.Translations("history",1)}{Fore.RED} {ProgramUsage.Translations("history",2)} {Style.RESET_ALL}"))
+                    choice = int(input(f"\n{ProgramUsage.Translations('history',1)}{Fore.RED} {ProgramUsage.Translations('history',2)} {Style.RESET_ALL}"))
                     if choice == 0:
                         self.history_selected = False
                         VIDEO = ""
