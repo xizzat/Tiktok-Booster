@@ -145,7 +145,7 @@ class TikTokBooster:
                         break
                     if 1 <= choice <= len(self.history):
                         self.history_selected = True
-                        VIDEO = f"https://www.tiktok.com/@{self.history[choice - 1]["creator"]}/video/{self.history[choice - 1]["video_id"]}"
+                        VIDEO = f"https://www.tiktok.com/@{self.history[choice - 1]['creator']}/video/{self.history[choice - 1]['video_id']}"
                         break
                     else:
                         print(f'{ProgramUsage.Translations("errors",0)}')
