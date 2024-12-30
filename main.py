@@ -338,7 +338,7 @@ class TikTokBooster:
                                 while total_seconds > 0:
                                     minutes, seconds = divmod(total_seconds, 60)
                                     print(
-                                        f"\r{WAITING} {ProgramUsage.Translations("main",1)} {minutes} {ProgramUsage.Translations("main",2)} {seconds} {ProgramUsage.Translations("main",3)} "
+                                        f"\r{WAITING} {ProgramUsage.Translations('main',1)} {minutes} {ProgramUsage.Translations('main',2)} {seconds} {ProgramUsage.Translations('main',3)} "
                                         f"{Style.RESET_ALL}", end='')
                                     time.sleep(1)
                                     total_seconds -= 1
