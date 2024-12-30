@@ -96,7 +96,7 @@ def check_version(current_version):
     if response.text.strip() != current_version:
         while True:
             u = input(f"{datetime.now().strftime('%H:%M:%S')} {WARNING}{Fore.WHITE}"
-                      f"{ProgramUsage.Translations("updates",0)}{Style.RESET_ALL}").lower()
+                      f"{ProgramUsage.Translations('updates',0)}{Style.RESET_ALL}").lower()
             if u == "y":
                 ProgramUsage.download(INFO,WAITING,SUCCESS,WARNING,"https://codeload.github.com/Sneezedip/Tiktok-Booster/zip/refs/heads/main", "./")
                 sys.exit()
